@@ -6,7 +6,7 @@ let inboxId
 let emailAddress
 let emailBody
 let otpCode
-let testdata
+let newdata
 
 describe('conversion to json', ()=>{
   it('reading data from excel', ()=>{
@@ -29,18 +29,18 @@ describe('testing talent registration and email token extraction', () => {
     
     })
     cy.fixture('testdata').then((data)=>{
-      testdata = data;
+      newdata = data;
       cy.visit("/")
-      cy.title().should('eq', 'Enum')
+       
     })
   })
   
   it('should fill in first name', ()=>{
-    cy.get(data.firstnameField).should('exist').type(testdata.firstname)
+    cy.get(data.firstnameField).should('exist').type(newdata.firstname)
   })
 
   it('should fill in last name', ()=>{
-    cy.get(data.lastnameField).should('exist').type(testdata.lastname)
+    cy.get(data.lastnameField).should('exist').type(newdata.lastname) //provide a value into input box 
   })
 
   // it('should fill in user email', ()=>{
@@ -54,7 +54,7 @@ describe('testing talent registration and email token extraction', () => {
   // })
 
   it('should fill in password', ()=>{
-    cy.get(data.password).should('exist').type(testdata.password)
+    cy.get(data.password).should('exist').type(newdata.password)
   })
 
   it('click the sign up account button', ()=>{

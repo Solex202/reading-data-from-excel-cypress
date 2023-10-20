@@ -1,4 +1,4 @@
-
+/// <reference types="Cypress"/>
 
 const{MailSlurp} = require('mailslurp-client')
 
