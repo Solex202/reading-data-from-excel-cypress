@@ -1,0 +1,5 @@
+{
+    "email": "#outlined-adornment-weight",
+    "password": "#outlined-adornment-password",
+    "loginButton": ".button__text"
+}

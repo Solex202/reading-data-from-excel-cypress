@@ -1,0 +1,11 @@
+{
+  "firstnameField":":nth-child(1) > .MuiFormControl-root > .MuiInputBase-root > #outlined-adornment-weight",
+  "lastnameField":"#div_two > .tw-mt-5 > .MuiFormControl-root > .MuiInputBase-root > #outlined-adornment-weight",
+  "email":"#form_two > :nth-child(2) > .MuiFormControl-root > .MuiInputBase-root > #outlined-adornment-weight",
+  "password": "#outlined-adornment-password",
+  "signupButton": ".button__text",
+  "otpField": "input"
+  
+}
+
+
