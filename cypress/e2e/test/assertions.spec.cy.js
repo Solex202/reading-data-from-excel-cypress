@@ -45,7 +45,7 @@ describe("Assertions for enum", function()
 
             cy.get('.name').then((name)=>{
              let actualName =  name.text()
-
+ 
              assert.equal(actualName, expName)
             //   expect(actualName).to.not.equal(expName)
 
