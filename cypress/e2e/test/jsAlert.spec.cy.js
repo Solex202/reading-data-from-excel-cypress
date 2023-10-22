@@ -50,4 +50,17 @@ describe('Alerts', ()=>{
         cy.get('#result').should('have.text', 'You entered: welcome')
 
     })
+
+    it('js authenticated alert - ', function(){
+        cy.visit('https://the-internet.herokuapp.com/javascript_alerts')
+
+        cy.window().then((win)=>{
+            cy.stub(win, 'prompt').returns('welcome')
+        })
+
+        cy.get("button[onclick='jsPrompt()']").click()
+        
+        cy.get('#result').should('have.text', 'You entered: welcome')
+
+    })
 })
