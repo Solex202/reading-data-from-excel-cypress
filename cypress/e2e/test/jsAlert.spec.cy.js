@@ -51,8 +51,11 @@ describe('Alerts', ()=>{
 
     })
 
-    it('js authenticated alert - ', function(){
-        cy.visit('https://the-internet.herokuapp.com/javascript_alerts')
+    it('js authenticated alert - approach 1 ', function(){
+        cy.visit('https://the-internet.herokuapp.com/basic_auth', {auth: 
+                                                                    {
+                                                                        username: "admin", 
+                                                                        password: "admin" }})
 
         cy.window().then((win)=>{
             cy.stub(win, 'prompt').returns('welcome')
