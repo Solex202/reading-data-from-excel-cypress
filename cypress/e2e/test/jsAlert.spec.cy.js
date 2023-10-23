@@ -10,10 +10,10 @@ describe('Alerts', ()=>{
         cy.get('#result').should('have.text', 'You successfully clicked an alert')
     })
 
-    it.only('js confirm alert', function(){
+    it('js confirm alert', function(){
         cy.visit('https://the-internet.herokuapp.com/javascript_alerts')
 
-        cy.get("button[onclick='jsAlert()']").click() 
+        cy.get("button[onclick='jsConfirm()']").click() 
         cy.on('window:confirm', (t)=>{ 
             expect(t).to.contains('I am a JS Confirm')
         })
@@ -24,12 +24,12 @@ describe('Alerts', ()=>{
 
     })
 
-    it('js confirm alert - cancel ', function(){
+    it.only('js confirm alert - cancel ', function(){
         cy.visit('https://the-internet.herokuapp.com/javascript_alerts')
         
-        cy.get("button[onclick='jsAlert()']").click() 
+        cy.get("button[onclick='jsConfirm()']").click() 
         cy.on('window:confirm', (t)=>{ 
-            expect(t).to.contains('I am a jS Confirm')
+            expect(t).to.contains('I am a JS Confirm')
             })
 
         cy.on('window:confirm', ()=> false) // cypress closes alert window using cancel button    
