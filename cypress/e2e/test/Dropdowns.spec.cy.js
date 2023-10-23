@@ -6,7 +6,7 @@ describe('handle dropdown', ()=>{
         .select('India')
         .should('have.value', 'Italy')
 
-        })
+    })
 
     it.skip('Dropdown without select', ()=>{
         cy.visit('https://www.dummyticket.com/dummy-ticket-for-visa-application/')
@@ -27,7 +27,7 @@ describe('handle dropdown', ()=>{
 
     })
 
-    it('Automate dynamic Dropdown', ()=>{
+    it.only('Automate dynamic Dropdown', ()=>{
         cy.visit('https://www.google.com/')
         cy.get("input[name='q']").type('cypress automation tool')
 
@@ -36,7 +36,7 @@ describe('handle dropdown', ()=>{
             if($el.text() == 'cypress automation'){
                  cy.wrap($el).click()
             }
-        })
+        }) 
 
         cy.get("input[name='q']").should('have.should', 'cypress automation tool')
 
