@@ -5,6 +5,7 @@ describe('Handling tabs', function(){
 
         cy.url().should('include', 'https://the-internet.herokuapp.com/windows/new')
 
+        cy.wait(5000)
         cy.go('back') //back to parent tab
     })
 
@@ -15,6 +16,11 @@ describe('Handling tabs', function(){
 
            cy.visit(url)
         })
+
+        cy.url().should('include', 'https://the-internet.herokuapp.com/windows/new')
+
+        cy.wait(5000)
+        cy.go('back') //back to parent tab
 
 
     })
