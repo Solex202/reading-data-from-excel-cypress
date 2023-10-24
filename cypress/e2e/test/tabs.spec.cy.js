@@ -10,7 +10,11 @@ describe('Handling tabs', function(){
 
     it('Approach 2', function(){
         cy.visit('https://the-internet.herokuapp.com/windows')
-        cy.get('.example >a').invoke('removeAttr', 'target').click()
+        cy.get('.example >a').then((e)=>{
+           let url = e.prop('href')
+
+           cy.visit(url)
+        })
 
 
     })
