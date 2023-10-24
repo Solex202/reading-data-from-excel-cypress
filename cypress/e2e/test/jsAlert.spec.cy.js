@@ -24,7 +24,7 @@ describe('Alerts', ()=>{
 
     })
 
-    it.only('js confirm alert - cancel ', function(){
+    it('js confirm alert - cancel ', function(){
         cy.visit('https://the-internet.herokuapp.com/javascript_alerts')
         
         cy.get("button[onclick='jsConfirm()']").click() 
@@ -51,13 +51,13 @@ describe('Alerts', ()=>{
 
     })
 
-    it('js authenticated alert - approach 1 ', function(){
+    it.only('js authenticated alert - approach 1 ', function(){
         cy.visit('https://the-internet.herokuapp.com/basic_auth', {auth: 
                                                                     {
                                                                         username: "admin", 
                                                                         password: "admin" }})
 
-        cy.get("div[class='example'] p").should('have.contain ', "Congratulations")
+        cy.get("div[class='example'] p").should('have.contain', "Congratulations")
         
 
     })
