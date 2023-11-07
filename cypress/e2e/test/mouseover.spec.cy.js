@@ -24,7 +24,7 @@ describe('Mouse Operations', ()=>{
         cy.get('.context-menu-icon-copy').should('be.visible')
     })
 
-    it.only('Double click', ()=>{
+    it('Double click', ()=>{
 
         cy.visit('https://www.w3schools.com/tags/tryit.asp?filename=tryhtml5_ev_ondblclick3')
 
@@ -32,5 +32,15 @@ describe('Mouse Operations', ()=>{
 
         cy.iframe('#iframeResult').find("button[ondlclick='myFunction()']").trigger('dblclick')
         cy.iframe('#iframeResult').find('#field2').should('have.value', 'Hello World! ')
+
+
+    })
+
+    it.only('Drag and drop', ()=>{
+        cy.visit('http://dhtmlgoodies.com/scripts/drag-drop-custom/demo-drag-drop-3.html')
+        cy.get('#box6').should('be.visible')
+        cy.get('#box106').should('be.visible')
+
+        cy.get('#box6').drag('#box106', {force:true})
     })
   })

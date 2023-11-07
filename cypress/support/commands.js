@@ -1,7 +1,7 @@
 /// <reference types="Cypress"/>
 
 require('cypress-iframe');
-
+require('@4tw/cypress-drag-drop')
 const{MailSlurp} = require('mailslurp-client')
 
 const mailslurp = new MailSlurp({ apiKey: Cypress.env('EMAIL_API_KEY')});
