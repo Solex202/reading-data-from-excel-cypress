@@ -17,10 +17,20 @@ describe('Mouse Operations', ()=>{
         cy.get('.context-menu-icon-copy').should('be.visible')
     })
 
-    it.only('right click-- approach 2', ()=>{
+    it('right click-- approach 2', ()=>{
         cy.visit('http://swisnl.github.io/jQuery-contextMenu/demo.html')
         cy.get('.context-menu-one').rightclick()
 
         cy.get('.context-menu-icon-copy').should('be.visible')
+    })
+
+    it.only('Double click', ()=>{
+
+        cy.visit('https://www.w3schools.com/tags/tryit.asp?filename=tryhtml5_ev_ondblclick3')
+
+        cy.frameLoaded('#iframeResult')
+
+        cy.iframe('#iframeResult').find("button[ondlclick='myFunction()']").trigger('dblclick')
+        cy.iframe('#iframeResult').find('#field2').should('have.value', 'Hello World! ')
     })
   })

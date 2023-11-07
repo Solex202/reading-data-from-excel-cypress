@@ -1,5 +1,7 @@
 /// <reference types="Cypress"/>
 
+require('cypress-iframe');
+
 const{MailSlurp} = require('mailslurp-client')
 
 const mailslurp = new MailSlurp({ apiKey: Cypress.env('EMAIL_API_KEY')});
