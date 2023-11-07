@@ -36,11 +36,23 @@ describe('Mouse Operations', ()=>{
 
     })
 
-    it.only('Drag and drop', ()=>{
+    it('Drag and drop', ()=>{
         cy.visit('http://dhtmlgoodies.com/scripts/drag-drop-custom/demo-drag-drop-3.html')
         cy.get('#box6').should('be.visible')
         cy.get('#box106').should('be.visible')
 
         cy.get('#box6').drag('#box106', {force:true})
+    })
+
+    it.only('Scroll page', ()=>{
+        cy.visit('https://www.countries-ofthe-world.com/flags-of-the-world.html')
+
+        cy.get(':nth-child(1) > tbody > :nth-child(86) > :nth-child(1) > img').scrollIntoView({duration:4000})
+        cy.get(':nth-child(1) > tbody > :nth-child(86) > :nth-child(1) > img').should('be.visible')
+
+        cy.get(':nth-child(1) > tbody > :nth-child(3) > :nth-child(1) > img').scrollIntoView({duration:4000})
+        cy.get(':nth-child(1) > tbody > :nth-child(3) > :nth-child(1) > img').should('be.visible')
+
+        cy.get('#footer').scrollIntoView({duration:4000})
     })
   })
