@@ -27,7 +27,7 @@ describe('handle dropdown', ()=>{
 
     })
 
-    it.only('Automate dynamic Dropdown', ()=>{
+    it('Automate dynamic Dropdown', ()=>{
         cy.visit('https://www.google.com/')
         cy.get("input[name='q']").type('cypress automation tool')
 
