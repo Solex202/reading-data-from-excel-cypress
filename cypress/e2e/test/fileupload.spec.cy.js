@@ -33,10 +33,21 @@ describe('File upload', ()=>{
 
     })
 
-    it.only('Upload multiple files', function (){
+    it('Upload multiple files', function (){
         cy.visit('https://davidwalsh.name/demo/multiple-file-upload.php')
 
         cy.get('#filesToUpload').attachFile(['testdata.xlsx','java.jpg','Screenshot 2023-10-31 155823.png'])
+        cy.get(':nth-child(6) > strong').should('contain.text', 'Files You Selected:')
+    })
+
+    it.only('File Upload = shadow dom', function (){
+        cy.visit('https://www.htmlelements.com/demos/fileupload/shadow-dom/index.htm')
+
+        cy.get('.smart-browse-input', {includeShadowDom:true}).attachFile('testdata.xlsx')
+
+        cy.get('.smart-item-name', {includeShadowDom:true}).contains('testdata.xlsx')
+
+
     })
 
 })
