@@ -11,7 +11,7 @@ describe('File upload', ()=>{
         // cy.get('.large-4 > div').should("include", 'Powered')
     })
 
-    it.only('Upload file - Rename', function (){
+    it('Upload file - Rename', function (){
         cy.visit('https://the-internet.herokuapp.com/upload')
 
         cy.get('#file-upload').attachFile({filePath:'testdata.xlsx', fileName:'exceldata.xlsx'})
@@ -21,4 +21,22 @@ describe('File upload', ()=>{
 
         cy.get('h3').should('have.text', 'File Uploaded!')
     })
+
+    it('Upload file - Drag and drop', function (){
+        cy.visit('https://the-internet.herokuapp.com/upload')
+
+        cy.visit('https://davidwalsh.name/demo/multiple-file-upload.php')
+        cy.get('#drag-drop-upload').attachFile("testdata.xlsx",{subjectType:'drag-n-drop'})
+
+        cy.wait(3000)
+        cy.get('#drag-drop-upload').contains('testdata.xlsx')
+
+    })
+
+    it.only('Upload multiple files', function (){
+        cy.visit('https://davidwalsh.name/demo/multiple-file-upload.php')
+
+        cy.get('#filesToUpload').attachFile(['testdata.xlsx','java.jpg','Screenshot 2023-10-31 155823.png'])
+    })
+
 })
