@@ -1,6 +1,7 @@
 const { defineConfig } = require("cypress");
 
 module.exports = defineConfig({
+  reporter: 'cypress-mochawesome-reporter',
   e2e: {
     baseUrl: 'https://systest-app.enum.africa/signup',
     watchForFileChanges: false,
@@ -13,6 +14,7 @@ module.exports = defineConfig({
     testIsolation: false,
     experimentalSourceRewriting: true,
     setupNodeEvents(on, config) {
+      require('cypress-mochawesome-reporter/plugin')(on);
       // implement node event listeners here
     },
   },
