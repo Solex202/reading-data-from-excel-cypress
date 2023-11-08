@@ -19,3 +19,7 @@ Cypress.Commands.add('waitForLatestEmail', (inboxId)=>{
 Cypress.Commands.add('parseXlsx', (inputFile)=>
      cy.task('parseXlsx', {filepath: inputFile})
 );
+
+Cypress.Commands.add('clickLink', (label)=>{
+    cy.get('a').contains(label).click()
+})
