@@ -29,10 +29,12 @@ describe('Handling tables', function (){
             })
         })
     })
-    it.only('Pagination', function (){
-        cy.get('.row > .text-end').then((e)=>{
+    it.only('Pagination', function(){
+        let totalPages ;
+            cy.get('.row > .text-end').then((e)=>{
             let textValue = e.text();
-            textValue.substring(textValue.indexOf("(")+1, textValue.indexOf("Pages")-1)
+            totalPages = textValue.substring(textValue.indexOf("(")+1, textValue.indexOf("Pages")-1)
+            cy.log("Total number of pages=====>"+ totalPages)
         })
     })
 
