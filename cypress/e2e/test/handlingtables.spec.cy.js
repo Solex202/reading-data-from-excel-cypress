@@ -1,32 +1,38 @@
 describe('Handling tables', function (){
     beforeEach('Login', function (){
 
-        cy.visit('https://demo.opencart.com/')
-        cy.get('#input-username').type('onwukalotachukwu210@gmail.com')
-        cy.get('#input-password').type('C@GH4yjV8peDcPW')
-        cy.get("#button[type='submit']").click()
+        cy.visit('https://demo.opencart.com/admin/index.php')
+        cy.get('#input-username').type('demo')
+        cy.get('#input-password').type('demo')
+        cy.get(".btn").click()
+
+        cy.get('.btn-close').click()
+        cy.get('#menu-customer > .parent').click()
+        cy.get('#collapse-5 > :nth-child(1) > a').click()
+        // cy.get('#menu-customer>')
     })
 
-    it('Check Number Rows & Columns', function (){
-
+    it.skip('Check Number Rows & Columns', function (){
+        cy.get('.table>tbody>tr').should('have.length', '10')
+        cy.get('.table>thead>tr>td').should('have.length', '7')
     })
-    it('Check cell data from specific row & column', function (){
+    it.skip('Check cell data from specific row & column', function (){
 
-
+        cy.get('tbody > :nth-child(2) > :nth-child(3)').contains('olaola@das.com ')
     })
-    it('Read all the rows and columns data in the first page', function (){
-        cy.get('').each(($row, index, $rows)=>{
+    it.only('Read all the rows and columns data in the first page', function (){
+        cy.get('.table>tbody>tr').each(($row, index, $rows)=>{
             cy.wrap($row).within(()=>{
-                cy.get('td' ).each(($col, index, $cols)=>{
+                cy.get('td').each(($col, index, $cols)=>{
                     cy.log($col.text())
                 })
             })
         })
     })
-    it('Pagination', function (){
-
-    })
-    it('Check Number Rows & Columns', function (){
-
-    })
+    // it('Pagination', function (){
+    //
+    // })
+    // it('Check Number Rows & Columns', function (){
+    //
+    // })
 })
