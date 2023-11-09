@@ -30,12 +30,31 @@ describe('Handling tables', function (){
         })
     })
     it.only('Pagination', function(){
-        let totalPages ;
-            cy.get('.row > .text-end').then((e)=>{
-            let textValue = e.text();
-            totalPages = textValue.substring(textValue.indexOf("(")+1, textValue.indexOf("Pages")-1)
-            cy.log("Total number of pages=====>"+ totalPages)
-        })
+        // let totalPages ;
+        //     cy.get('.row > .text-end').then((e)=>{
+        //     let textValue = e.text();
+        //     totalPages = textValue.substring(textValue.indexOf("(")+1, textValue.indexOf("Pages")-1)
+        //     cy.log("Total number of pages=====>"+ totalPages)
+        // })
+
+        let totalPage = 5
+        for (let p = 1; p <=totalPage; p++){
+            if(totalPage>1){
+                cy.log("active page is==="+p)
+                cy.get(":nth-child("+p+") > .page-link").click()
+                cy.wait(4000)
+
+                cy.get('.table>tbody>tr').each((
+                    $row, index, $rows
+                )=>{
+                    cy.wrap($row).within(()=>{
+                        cy.get(':td:nth-child(3)')
+                    })
+                })
+
+
+            }
+        }
     })
 
 })
