@@ -1,6 +1,10 @@
 describe('Handling tables', function (){
     beforeEach('Login', function (){
 
+        cy.visit('https://demo.opencart.com/')
+        cy.get('#input-username').type('onwukalotachukwu210@gmail.com')
+        cy.get('#input-password').type('C@GH4yjV8peDcPW')
+        cy.get("#button[type='submit']").click()
     })
 
     it('Check Number Rows & Columns', function (){
