@@ -9,7 +9,7 @@ describe('Handling tables', function (){
         cy.get('.btn-close').click()
         cy.get('#menu-customer > .parent').click()
         cy.get('#collapse-5 > :nth-child(1) > a').click()
-        // cy.get('#menu-customer>')
+
     })
 
     it.skip('Check Number Rows & Columns', function (){
@@ -29,10 +29,11 @@ describe('Handling tables', function (){
             })
         })
     })
-    // it('Pagination', function (){
-    //
-    // })
-    // it('Check Number Rows & Columns', function (){
-    //
-    // })
+    it.only('Pagination', function (){
+        cy.get('.row > .text-end').then((e)=>{
+            let textValue = e.text();
+            textValue.substring(textValue.indexOf("(")+1, textValue.indexOf("Pages")-1)
+        })
+    })
+
 })
