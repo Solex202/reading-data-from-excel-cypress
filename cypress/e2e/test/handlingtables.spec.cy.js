@@ -48,7 +48,9 @@ describe('Handling tables', function (){
                     $row, index, $rows
                 )=>{
                     cy.wrap($row).within(()=>{
-                        cy.get(':td:nth-child(3)')
+                        cy.get('tbody > :nth-child(3) > :nth-child(3)').then((e)=>{
+                          cy.log(e.text());
+                        })
                     })
                 })
 

@@ -25,18 +25,6 @@ Cypress.Commands.add('clickLink', (label)=>{
     cy.get('a').contains(label).click()
 })
 
-// Cypress.Commands.overwriteQuery('contains', (originalFn.bind(this), subject, filter, text, options = {})=>{
-//     if (typeof text == 'object'){
-//         options = text
-//         text = filter
-//         filter = undefined
-//     }
-//
-//     options.matchCase = false
-//
-//     return originalFn(subject, filter, text, options)
-// })
-
 Cypress.Commands.overwriteQuery(
     "contains",
     function (contains, filter, text, userOptions = {}) {
